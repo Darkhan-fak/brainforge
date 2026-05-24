@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "brainforge"
+version = "0.1.0"
+description = "Brain-Inspired AI: Cortex-inspired PyTorch modules built on real neuroscience data"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+dependencies = [
+    "torch>=2.0",
+    "numpy>=1.24",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "matplotlib>=3.7"]
+benchmark = ["torchvision>=0.15", "tqdm>=4.65", "matplotlib>=3.7"]
+
+[tool.setuptools.packages.find]
+include = ["brainnet*", "neurosleep*", "rlhbf*"]
