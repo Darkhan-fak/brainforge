@@ -1,0 +1,16 @@
+{
+  "config": "learning_check_5ep",
+  "model_type": "conv_cortical",
+  "total_params": 2070798,
+  "trainable_params": 2005262,
+  "epochs": 5,
+  "train_samples": 5000,
+  "seeds": [
+    42
+  ],
+  "final_val_accuracies": [
+    25.9
+  ],
+  "mean_val_acc": 25.9,
+  "std_val_acc": 0.0
+}

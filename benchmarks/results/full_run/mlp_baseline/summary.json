@@ -1,0 +1,56 @@
+{
+  "config": "mlp_baseline",
+  "model_type": "mlp_baseline",
+  "total_params": 2025215,
+  "trainable_params": 2025215,
+  "epochs": 50,
+  "train_samples": 50000,
+  "seeds": [
+    42,
+    123,
+    7
+  ],
+  "final_val_accuracies": [
+    50.56,
+    48.42,
+    48.78
+  ],
+  "mean_val_acc": 49.2533,
+  "std_val_acc": 0.9356,
+  "best_val_accuracies": [
+    50.56,
+    50.66,
+    49.51
+  ],
+  "mean_best_val_acc": 50.2433,
+  "std_best_val_acc": 0.5201,
+  "best_epochs": [
+    50,
+    40,
+    39
+  ],
+  "mean_best_epoch": 43.0,
+  "peak_gpu_memories": [
+    0.06,
+    0.06,
+    0.06
+  ],
+  "mean_peak_gpu_memory_gb": 0.06,
+  "max_peak_gpu_memory_gb": 0.06,
+  "total_times": [
+    425.8,
+    426.2,
+    421.1
+  ],
+  "total_duration_seconds": 1273.1,
+  "best_val_acc_mean": 50.2433,
+  "best_val_acc_std": 0.5201,
+  "final_val_acc_mean": 49.2533,
+  "final_val_acc_std": 0.9356,
+  "best_epoch_mean": 43.0,
+  "best_val_acc_per_seed": [
+    50.56,
+    50.66,
+    49.51
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "config": "test_gpu_speed",
+  "model_type": "conv_cortical",
+  "total_params": 2123022,
+  "trainable_params": 2057486,
+  "epochs": 1,
+  "train_samples": 50000,
+  "seeds": [
+    42,
+    123,
+    7
+  ],
+  "final_val_accuracies": [
+    36.9,
+    36.43,
+    33.46
+  ],
+  "mean_val_acc": 35.5967,
+  "std_val_acc": 1.523
+}

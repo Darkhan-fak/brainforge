@@ -1,0 +1,111 @@
+{
+  "config": "conv_cortical_inhib20",
+  "seed": 42,
+  "total_params": 2123022,
+  "trainable_params": 2031886,
+  "epochs": 10,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 2.0775,
+      "train_ce": 1.8471,
+      "train_topo": 0.2304,
+      "train_acc": 30.04,
+      "val_loss": 1.682,
+      "val_acc": 37.61,
+      "wall_time": 100.7
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.7342,
+      "train_ce": 1.563,
+      "train_topo": 0.1712,
+      "train_acc": 41.82,
+      "val_loss": 1.6675,
+      "val_acc": 39.84,
+      "wall_time": 101.38
+    },
+    {
+      "epoch": 3,
+      "train_loss": 1.5534,
+      "train_ce": 1.3986,
+      "train_topo": 0.1547,
+      "train_acc": 48.78,
+      "val_loss": 1.368,
+      "val_acc": 50.52,
+      "wall_time": 101.36
+    },
+    {
+      "epoch": 4,
+      "train_loss": 1.4468,
+      "train_ce": 1.3027,
+      "train_topo": 0.1441,
+      "train_acc": 52.85,
+      "val_loss": 1.2728,
+      "val_acc": 54.33,
+      "wall_time": 101.39
+    },
+    {
+      "epoch": 5,
+      "train_loss": 1.3679,
+      "train_ce": 1.2313,
+      "train_topo": 0.1367,
+      "train_acc": 55.76,
+      "val_loss": 1.1991,
+      "val_acc": 57.21,
+      "wall_time": 101.43
+    },
+    {
+      "epoch": 6,
+      "train_loss": 1.3081,
+      "train_ce": 1.1771,
+      "train_topo": 0.1309,
+      "train_acc": 57.67,
+      "val_loss": 1.153,
+      "val_acc": 58.6,
+      "wall_time": 101.3
+    },
+    {
+      "epoch": 7,
+      "train_loss": 1.2559,
+      "train_ce": 1.13,
+      "train_topo": 0.1259,
+      "train_acc": 59.37,
+      "val_loss": 1.1475,
+      "val_acc": 58.68,
+      "wall_time": 101.33
+    },
+    {
+      "epoch": 8,
+      "train_loss": 1.2228,
+      "train_ce": 1.0998,
+      "train_topo": 0.123,
+      "train_acc": 60.69,
+      "val_loss": 1.1494,
+      "val_acc": 58.97,
+      "wall_time": 101.28
+    },
+    {
+      "epoch": 9,
+      "train_loss": 1.1871,
+      "train_ce": 1.0671,
+      "train_topo": 0.1199,
+      "train_acc": 61.96,
+      "val_loss": 1.0896,
+      "val_acc": 61.67,
+      "wall_time": 101.36
+    },
+    {
+      "epoch": 10,
+      "train_loss": 1.152,
+      "train_ce": 1.0342,
+      "train_topo": 0.1178,
+      "train_acc": 63.18,
+      "val_loss": 1.0396,
+      "val_acc": 63.25,
+      "wall_time": 101.28
+    }
+  ],
+  "total_time_seconds": 1012.8,
+  "final_val_acc": 63.25
+}

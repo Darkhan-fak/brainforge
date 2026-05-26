@@ -1,0 +1,56 @@
+{
+  "config": "conv_cortical_inhib0",
+  "model_type": "conv_cortical",
+  "total_params": 2123022,
+  "trainable_params": 1979658,
+  "epochs": 50,
+  "train_samples": 50000,
+  "seeds": [
+    42,
+    123,
+    7
+  ],
+  "final_val_accuracies": [
+    72.38,
+    74.06,
+    72.85
+  ],
+  "mean_val_acc": 73.0967,
+  "std_val_acc": 0.7077,
+  "best_val_accuracies": [
+    73.08,
+    74.06,
+    73.23
+  ],
+  "mean_best_val_acc": 73.4567,
+  "std_best_val_acc": 0.431,
+  "best_epochs": [
+    47,
+    50,
+    49
+  ],
+  "mean_best_epoch": 48.67,
+  "peak_gpu_memories": [
+    3.537,
+    3.536,
+    3.536
+  ],
+  "mean_peak_gpu_memory_gb": 3.536,
+  "max_peak_gpu_memory_gb": 3.537,
+  "total_times": [
+    4762.3,
+    4755.9,
+    4751.9
+  ],
+  "total_duration_seconds": 14270.1,
+  "best_val_acc_mean": 73.4567,
+  "best_val_acc_std": 0.431,
+  "final_val_acc_mean": 73.0967,
+  "final_val_acc_std": 0.7077,
+  "best_epoch_mean": 48.67,
+  "best_val_acc_per_seed": [
+    73.08,
+    74.06,
+    73.23
+  ]
+}

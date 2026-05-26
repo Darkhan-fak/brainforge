@@ -13,6 +13,8 @@ Quick start:
 """
 
 from .cortical_column import CorticalColumn, CorticalLayer
+from .conv_column import ConvCorticalColumn, ConvCorticalLayer
+from .conv_backbone import ConvBackbone
 from .inhibitory import InhibitoryLayer
 from .lateral import LateralConnections
 from .topoloss import TopoLoss
@@ -21,6 +23,9 @@ __version__ = "0.1.0"
 __all__ = [
     "CorticalColumn",
     "CorticalLayer",
+    "ConvCorticalColumn",
+    "ConvCorticalLayer",
+    "ConvBackbone",
     "InhibitoryLayer",
     "LateralConnections",
     "TopoLoss",

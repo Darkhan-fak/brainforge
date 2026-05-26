@@ -1,0 +1,21 @@
+{
+  "config": "test_conv_subset",
+  "seed": 7,
+  "total_params": 2123022,
+  "trainable_params": 2057486,
+  "epochs": 1,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 2.6325,
+      "train_ce": 2.6325,
+      "train_topo": 0.0,
+      "train_acc": 13.3,
+      "val_loss": 2.3085,
+      "val_acc": 13.5,
+      "wall_time": 30.39
+    }
+  ],
+  "total_time_seconds": 30.4,
+  "final_val_acc": 13.5
+}

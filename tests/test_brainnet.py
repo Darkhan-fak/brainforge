@@ -6,7 +6,7 @@ import os
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from brainnet import CorticalColumn, InhibitoryLayer, LateralConnections, TopoLoss
+from brainnet import CorticalColumn, ConvCorticalColumn, ConvBackbone, InhibitoryLayer, LateralConnections, TopoLoss
 
 
 class TestCorticalColumn:
@@ -142,6 +142,76 @@ class TestIntegration:
         print(f"Training step loss: {loss.item():.4f}")
 
 
+class TestConvCorticalColumn:
+    def test_conv_forward_shape(self):
+        model = ConvCorticalColumn(in_channels=3, hidden_channels=32, out_features=10)
+        x = torch.randn(8, 3, 32, 32)
+        out = model(x)
+        assert out.shape == (8, 10)
+
+    def test_conv_activations_stored(self):
+        model = ConvCorticalColumn(3, 32, 10)
+        x = torch.randn(4, 3, 32, 32)
+        _ = model(x)
+        acts = model.get_activations()
+        assert len(acts) == 4
+        for a in acts:
+            assert a.shape == (4, 32)
+
+    def test_conv_gradient_flow(self):
+        model = ConvCorticalColumn(3, 32, 10)
+        x = torch.randn(4, 3, 32, 32)
+        out = model(x)
+        loss = out.sum()
+        loss.backward()
+        for name, p in model.named_parameters():
+            assert p.grad is not None, f"No gradient for {name}"
+
+
+class TestConvBackbone:
+    def test_conv_forward_shape(self):
+        model = ConvBackbone(in_channels=3, hidden_channels=32, out_features=10)
+        x = torch.randn(8, 3, 32, 32)
+        out = model(x)
+        assert out.shape == (8, 10)
+
+    def test_conv_activations_stored(self):
+        model = ConvBackbone(3, 32, 10)
+        x = torch.randn(4, 3, 32, 32)
+        _ = model(x)
+        acts = model.get_activations()
+        assert len(acts) == 4
+        for a in acts:
+            assert a.shape == (4, 32)
+
+    def test_conv_gradient_flow(self):
+        model = ConvBackbone(3, 32, 10, inhibitory_ratio=0.1, use_lateral=True)
+        x = torch.randn(4, 3, 32, 32)
+        out = model(x)
+        loss = out.sum()
+        loss.backward()
+        for name, p in model.named_parameters():
+            if p.requires_grad:
+                assert p.grad is not None, f"No gradient for {name}"
+
+    def test_parameter_symmetry(self):
+        # Baseline model (ratio=0.0, lateral=False)
+        model_baseline = ConvBackbone(3, 32, 10, inhibitory_ratio=0.0, use_lateral=False)
+        # Bio model (ratio=0.2, lateral=True)
+        model_bio = ConvBackbone(3, 32, 10, inhibitory_ratio=0.2, use_lateral=True)
+
+        params_baseline = sum(p.numel() for p in model_baseline.parameters())
+        params_bio = sum(p.numel() for p in model_bio.parameters())
+
+        # Total parameter count MUST be exactly identical
+        assert params_baseline == params_bio, f"Baseline parameters {params_baseline} != Bio parameters {params_bio}"
+
+        # Trainable parameters MUST be different (baseline has frozen parameters)
+        trainable_baseline = sum(p.numel() for p in model_baseline.parameters() if p.requires_grad)
+        trainable_bio = sum(p.numel() for p in model_bio.parameters() if p.requires_grad)
+        assert trainable_baseline < trainable_bio, f"Baseline trainable {trainable_baseline} should be less than bio trainable {trainable_bio}"
+
+
 if __name__ == "__main__":
     print("Running BrainNet tests...\n")
 
@@ -157,6 +227,24 @@ if __name__ == "__main__":
     print("[PASS] CorticalColumn without lateral")
     test_col.test_different_inhibitory_ratios()
     print("[PASS] CorticalColumn different inhibitory ratios")
+
+    test_conv_col = TestConvCorticalColumn()
+    test_conv_col.test_conv_forward_shape()
+    print("[PASS] ConvCorticalColumn forward shape")
+    test_conv_col.test_conv_activations_stored()
+    print("[PASS] ConvCorticalColumn activations stored")
+    test_conv_col.test_conv_gradient_flow()
+    print("[PASS] ConvCorticalColumn gradient flow")
+
+    test_conv_backbone = TestConvBackbone()
+    test_conv_backbone.test_conv_forward_shape()
+    print("[PASS] ConvBackbone forward shape")
+    test_conv_backbone.test_conv_activations_stored()
+    print("[PASS] ConvBackbone activations stored")
+    test_conv_backbone.test_conv_gradient_flow()
+    print("[PASS] ConvBackbone gradient flow")
+    test_conv_backbone.test_parameter_symmetry()
+    print("[PASS] ConvBackbone parameter symmetry")
 
     test_inh = TestInhibitoryLayer()
     test_inh.test_shape_preserved()
@@ -185,3 +273,4 @@ if __name__ == "__main__":
     print("[PASS] Full training step")
 
     print("\n All tests passed!")
+

@@ -1,0 +1,20 @@
+{
+  "config": "conv_cortical_inhib30",
+  "model_type": "conv_cortical",
+  "total_params": 2123022,
+  "trainable_params": 2057486,
+  "epochs": 10,
+  "train_samples": 50000,
+  "seeds": [
+    42,
+    123,
+    7
+  ],
+  "final_val_accuracies": [
+    62.15,
+    62.61,
+    61.96
+  ],
+  "mean_val_acc": 62.24,
+  "std_val_acc": 0.2729
+}

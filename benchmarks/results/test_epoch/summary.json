@@ -1,0 +1,20 @@
+{
+  "config": "test_epoch",
+  "model_type": "mlp_baseline",
+  "total_params": 2025215,
+  "trainable_params": 2025215,
+  "epochs": 1,
+  "train_samples": 50000,
+  "seeds": [
+    42,
+    123,
+    7
+  ],
+  "final_val_accuracies": [
+    38.13,
+    38.44,
+    37.95
+  ],
+  "mean_val_acc": 38.1733,
+  "std_val_acc": 0.2024
+}

@@ -1,0 +1,21 @@
+{
+  "config": "test_epoch",
+  "seed": 7,
+  "total_params": 2025215,
+  "trainable_params": 2025215,
+  "epochs": 1,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.8484,
+      "train_ce": 1.8484,
+      "train_topo": 0.0,
+      "train_acc": 32.45,
+      "val_loss": 1.714,
+      "val_acc": 37.95,
+      "wall_time": 9.19
+    }
+  ],
+  "total_time_seconds": 9.2,
+  "final_val_acc": 37.95
+}

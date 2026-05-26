@@ -1,0 +1,21 @@
+{
+  "config": "test_gpu_speed",
+  "seed": 7,
+  "total_params": 2123022,
+  "trainable_params": 2057486,
+  "epochs": 1,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.8826,
+      "train_ce": 1.8826,
+      "train_topo": 0.0,
+      "train_acc": 29.15,
+      "val_loss": 1.7806,
+      "val_acc": 33.46,
+      "wall_time": 111.97
+    }
+  ],
+  "total_time_seconds": 112.0,
+  "final_val_acc": 33.46
+}

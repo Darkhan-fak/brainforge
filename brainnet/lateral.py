@@ -54,7 +54,12 @@ class LateralConnections(nn.Module):
             self.lateral_weight.fill_diagonal_(0.0)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        h = x
+        orig_shape = x.shape
+        if len(orig_shape) == 4:
+            B, H, W, C = orig_shape
+            h = x.reshape(B * H * W, C)
+        else:
+            h = x
 
         for _ in range(self.iterations):
             # Compute lateral signal
@@ -66,4 +71,7 @@ class LateralConnections(nn.Module):
             # Add lateral context to current activation
             h = h + lateral_signal
 
-        return h
+        if len(orig_shape) == 4:
+            return h.reshape(B, H, W, C)
+        else:
+            return h
